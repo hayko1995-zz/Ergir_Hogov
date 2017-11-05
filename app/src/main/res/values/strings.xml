@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Երգիր Հոքով</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Zoom</string>
+    <string name="Mail">Send Mail</string>
+    <string name="button">Button</string>
+
+</resources>

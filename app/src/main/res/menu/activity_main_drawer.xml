@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <group
+        android:checkableBehavior="single"
+        android:textColor="@color/black_color"
+        tools:ignore="ExtraText">
+        <item
+            android:id="@+id/Ararich_erknqi"
+            android:title="Արարիչ երկնքի"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Aleluyaner"
+            android:title="Քո ծառային"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Aha_kangnac_em"
+            android:title="Ահա կանգնած եմ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Aha_menq_mer_urax_ergerov"
+            android:title="Ահա, մենք մեր ուրախ Երգերով"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Amenic_ver"
+            android:title="Ամենից վեր"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Amen_tsunk_ktsrvi"
+            android:title="Ամեն ծունկ ծռի"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ayd_inch_xaxax_ajker_unes_du"
+            android:title="Այդ ինչ խաղաղ աչքեր ունես"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Aranc_qez_im_kyanq"
+            android:title="Առանց Քեզ իմ կյանքը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Astco_ser"
+            android:title="Աստծո սերը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Bari_lur"
+            android:title="Բարի լուր"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Barcial_arqa"
+            android:title="Բարձյալ Արքա"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Bari_hoviv"
+            android:title="Բարի Հովիվ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Bacir_im_hogu_achqer"
+            android:title="Բացի՚ր, իմ հոգու"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Beranis_xosqer"
+            android:title="Բերանիս խոսքերը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Galis_em"
+            android:title="Գալիս եմ  ներկայոթյանդ մեջ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Garun_e_hima_im_hoqum"
+            android:title="Գարուն է հիմա իմ հոգում"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Garun_hrashali"
+            android:title="Գարուն է հիմա իմ հոգում"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/davanenq"
+            android:title="Դավանենք"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/De_ijir_ijir"
+            android:title="Դավանենք"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Djvar_pahin"
+            android:title="Դժվար պահին"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Dolorasan"
+            android:title="Դոլորոսան"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Du_gites_tiroj_patverner"
+            android:title="Դու գիտես Տիրոջ պատվերները"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Du_es_ser_im_kjanqi"
+            android:title="Դու ես սերը իմ կյանքի"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Du_es_miayn_surb"
+            android:title="Դու ես միայն Սուրբ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Du_es_surb"
+            android:title="Դու ես սուրբ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Du_erknqic_erkir_ijar"
+            android:title="Դու երկնքից երկիր իջար"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Du_petkes_indz"
+            android:title="Դու պետք ես ինձ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ekexeci"
+            android:title="Եկեղեցի"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ekeq_miananq"
+            android:title="Եկեք  միանաք"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ek_ov_surb_hoqi"
+            android:title="Եկ ով Սուրբ Հոգի"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Es_sirum_em_qez_sirov"
+            android:title="Ես սիրում եմ քեզ սիրով"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Es_hayr_unem"
+            android:title="Ես հայր ունեմ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Es_mecarum_em"
+            android:title="Ես մեծարում եմ քեզ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Es_sirum_em_Hisusin"
+            android:title="Ես սիրում եմ Հիսուսին"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ev_astvac_aynpes"
+            android:title="ԵՎ Աստված այնպես"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ergerov_qez_kmecarem"
+            android:title="Երգերով Քեզ կմեծարեմ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Erb_korac_ei"
+            android:title="Երբ կորացծ էի"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Erb_nayum_em"
+            android:title="Երբ նայում եմ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Erb_vor_na_amperov"
+            android:title="Երբ որ նա ամպերով"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Erkinq_Asco_parq_kpatmi"
+            android:title="Քո ծառային"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Erknqi_dur_bac_e"
+            android:title="Երկնքի դուռը բաց է"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Zinvor"
+            android:title="Զինվոր"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Zorutyun_qajutyun"
+            android:title="Զորություն Քաջություն"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Im_angin"
+            android:title="Իմ Անգին"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Im_kyanqi_huysnes_du"
+            android:title="Իմ կյանքի հույսն ես դու"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Inch_anun_ashxar_ekav"
+            android:title="Ինչ անուն աշխարհ եկավ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/inch_mec_e_Astvac"
+            android:title="Ինչ մեծ է Աստված"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Inch_mec_u_hrashali"
+            android:title="Ինչ մեծ ու հրաշալի"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ir_xachov_mez"
+            android:title="Իր խաչով մեզ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Lur_Gisher"
+            android:title="Լուռ գիշեր"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Xachin_mot"
+            android:title="Խաչին մոտ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Xachin_misht_nayelov"
+            android:title="Ծնվեց Տեր Հիսուս"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Tsap_zark"
+            android:title="Ծափ զարկ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Tsnndyan_tonin"
+            android:title="Ծննդյան տոնին մենք"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Tsnvec_ter_Hsius"
+            android:title="Ծնվեց Տեր Հիսուս"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Kaxotem_qez_hamar"
+            android:title="Կաղոթեմ քեզ համար"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Kangneq_mardiq"
+            android:title="Կանգնեք մարդիկ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Kergem"
+            android:title="Դու պետք ես ինձ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Hachaxakai_ari_du_goxgota"
+            android:title="Հաճախակի արի դու գողգոթա"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Havatqs_chem_urana"
+            android:title="Հավատկս չեմ ուրանա"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Hisusi_ser"
+            android:title="Հիսուսի սերը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Hisusi_ser_orhni_mez"
+            android:title="Հիսուսի սերը օրհնի մեզ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Hisus_e_kyanq"
+            android:title="Հիսուսն է կյանքը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Hisus_erkrpagum_em_qez"
+            android:title="Հիսուս երկրպագում եմ քեզ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Hisus_Dues_ayn_jar"
+            android:title="Հիսուս դու ես այն ժայռը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Hisus_dues_im_ter"
+            android:title="Հիսուս Դու ես իմ Տերը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Hisus_krak_e"
+            android:title="Հիսուս կրակ է"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Hisus_sirum_enq"
+            android:title="Հիսուս սիրում ենք"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Hisus_parqi_e_arjani"
+            android:title="Հիսուս փառքի ես արժանի"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Hnern_ancan"
+            android:title="Հներն անցան"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/mardiq_cnvum_en"
+            android:title="Մարդիք ծնվում են"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/menq_enq_mer_hoqov"
+            android:title="Մենք ենք մեր հոքով"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/mets_u_Hrashali_en"
+            android:title="Մեծ ու հրաշալի"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Miayn_qez_nayem"
+            android:title="Միայն քեզի նայիմ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Mek_ka_vor_arjani_e"
+            android:title="Միայն մեկը կա որ արժանի է"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/mtel_em_srbutyant_srboc"
+            android:title="Մտել եմ սրբությանտ սրբոցը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Nerir_ter_im"
+            android:title="Ներիր Տեր իմ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Shnorhakal_enq_ter_Hisusin"
+            android:title="Շնորհակալ ենք Տեր Հիսուս"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ov_Hisus_imdz_mot_ari"
+            android:title="Ով Հիսուս ինձ մոտ արի"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Vordis"
+            android:title="Որդիս"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Vorqan_uzumem_em"
+            android:title="Որքան ուզում եմ"
+            tools:ignore="HardcodedText" />
+
+        <item
+            android:id="@+id/Vortex_Tiroj_hoqin"
+            android:title="Որտեղ Տիրոջ Հոգին "
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Uzumem_motenal_qez"
+            android:title="Ուզում եմ մոտենալ Քեզ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Umn_e_misht_parq"
+            android:title="Ումն է միշտ փառքը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ur_gnam"
+            android:title="Ուր գնամ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Chka_huys_indz_hamar"
+            android:title="Չկար հույս ինձ համար"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ser"
+            android:title="Սեր"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Srtis_miak_papag"
+            android:title="Սրտիս միակ փափագն"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Tiroj_parq_tveq"
+            android:title="Տիրոջը փառք տվեք"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Tesel_em_Hisusi_haxtutyun"
+            android:title="Տեսել եմ ես Հիսուսի հաղթությունը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ter_du_gites"
+            android:title="Տեր դու գիտես"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ter_inch_gexecik_es"
+            android:title="Տեր ինչ գեղեցիկ ես"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ter_pahe_zis"
+            android:title="Տեր պահի զիս"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ter_zorutyun_e"
+            android:title="Տերը զորություն է"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Ter_im_hovivn_e"
+            android:title="Տերը իմ Հովիվս է"
+            tools:ignore="HardcodedText" />
+
+        <item
+            android:id="@+id/Ter_Hisus_ter_Hisus"
+            android:title="Տեր Հիսուս Տեր Հիսուս"
+            tools:ignore="HardcodedText" />
+
+
+        <item
+            android:id="@+id/Tern_e_im_luysn_u_prkutyun"
+            android:title="Տերն է իմ լույսն ու փրկությունը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Tern_e_mer_arqaneri_arqan"
+            android:title="Տերն է մեր Արքաների Արքան"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Tirojme_kxndrem"
+            android:title="Տերոջմե կխնդրեմ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Parq_tanq"
+            android:title="Փառք տանք"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Parq_tanq_Hisusin"
+            android:title="Փառք տանք մենք Հիսուսին"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Parq_enq_talis_qez"
+            android:title="Փառք ենք տալիս քեզ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Parq_tveq_Ascun"
+            android:title="Փառք տվեք Ասծուն"
+            tools:ignore="HardcodedText" />
+
+        <item
+            android:id="@+id/Qezem_nvirum"
+            android:title="Քեզեմ նվիրում"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Qich_m_arev"
+            android:title="Քիչմը արև"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Qo_carayin"
+            android:title="Քո ծառային"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Qo_ser_barcr_e"
+            android:title="Քո սերը բարձր է"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Qo_sirov_indz_ayceleles"
+            android:title="Քո սիրով ինձ այցելել ես"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Qristosn_e_ayn_jayr"
+            android:title="Քրիստոսն է ժայռը"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Qristos_ov_chgiti"
+            android:title="Քրիստոս, ով չգիտի"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/O_inch_hrashq_metutyunes"
+            android:title="Օ ինչ հրաշք մեծություն ես"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Orhni_mez_orhnyal"
+            android:title="Օրհնիր մեզ օրհնյալ"
+            tools:ignore="HardcodedText" />
+        <item
+            android:id="@+id/Orhnyal_erashxiq"
+            android:title="Օրհնյալ երաշխիք"
+            tools:ignore="HardcodedText" />
+
+        <item
+            android:id="@+id/Ovsanna"
+            android:title="Օվսաննա"
+            tools:ignore="HardcodedText" />
+
+
+
+
+        <item
+            android:id="@+id/Ovkianos"
+            android:title="Օվկիանոս"
+            tools:ignore="HardcodedText" />
+
+
+
+
+    </group>
+
+</menu>
