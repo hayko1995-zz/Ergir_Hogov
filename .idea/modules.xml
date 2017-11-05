@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ERG - Copy.iml" filepath="$PROJECT_DIR$/ERG - Copy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ergir_Hogov.iml" filepath="$PROJECT_DIR$/Ergir_Hogov.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
