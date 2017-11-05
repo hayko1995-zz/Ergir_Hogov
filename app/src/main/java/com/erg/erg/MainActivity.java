@@ -3,8 +3,10 @@ package com.erg.erg;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -30,17 +33,43 @@ import static com.erg.erg.R.array.array_country;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public String erg;
+    private static final int UPDATE_FREQUENCY = 500;
+    private final Handler handler = new Handler();
     ArrayAdapter<String> adapter;
     int size;
     SharedPreferences settings;
-    ListView lv;
     SearchView searchView;
     String[] songsArray;
     String swsong;
     Intent intent = null, chooser;
+    // private SeekBar seekbar = null;
+    private MediaPlayer player = null;
+    private ImageButton playButton = null;
+    private TextView selelctedFile = null;
     private TextView textView;
+    private String erg;
+    private ListView lv;
+    private boolean isMoveingSeekBar = false;
+    private View.OnClickListener onButtonClick = new View.OnClickListener() {
 
+        @Override
+        public void onClick(View v) {
+
+
+            if (player.isPlaying()) {
+
+                player.pause();
+                playButton.setImageResource(android.R.drawable.ic_media_play);
+            } else {
+
+                player.start();
+
+                playButton.setImageResource(android.R.drawable.ic_media_pause);
+
+
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +77,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
 
+        // seekbar = (SeekBar) findViewById(R.id.seekbar);
+        playButton = (ImageButton) findViewById(R.id.play);
+
+        //player = new MediaPlayer();
+        player = MediaPlayer.create(this, R.raw.xvalite_boga_nebes);
+        // playButton.setOnClickListener(onButtonClick);
+        // seekbar.setOnSeekBarChangeListener(seekBarChanged);
+
+        // player.stop();
+        // player.reset();
+        playButton.setImageResource(android.R.drawable.ic_media_play);
+        //player.start();
+        // handler.removeCallbacks(updatePositionRunnable);
+        //seekbar.setProgress(0);
+        playButton.setOnClickListener(onButtonClick);
 
 
         // start thread
@@ -101,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
-
 
     @Override
     public void onBackPressed() {
@@ -185,6 +228,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
+    /* private SeekBar.OnSeekBarChangeListener seekBarChanged = new SeekBar.OnSeekBarChangeListener() {
+         @Override
+         public void onStopTrackingTouch(SeekBar seekBar) {
+             isMoveingSeekBar = false;
+         }
+
+         @Override
+         public void onStartTrackingTouch(SeekBar seekBar) {
+             isMoveingSeekBar = true;
+         }
+
+         @Override
+         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+             if (isMoveingSeekBar) {
+                 player.seekTo(progress);
+
+                 Log.i("OnSeekBarChangeListener", "onProgressChanged");
+             }
+         }
+     };*/
     public void Inch_mec_e_Astvac(View view) {
         Inch_mec_e_Astvac obj = new Inch_mec_e_Astvac();
         erg = obj.get_song();

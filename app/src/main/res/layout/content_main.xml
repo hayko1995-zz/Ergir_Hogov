@@ -2,23 +2,84 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:visibility="visible"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="60dp"
+
+    android:gravity="top|center|end"
+    android:orientation="vertical"
+    app:layout_collapseParallaxMultiplier="0.0"
     tools:context="com.erg.erg.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:drawable/screen_background_light"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:src="@android:drawable/ic_media_play"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/selectedfile"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:text="Not file selected"
+            android:textColor="@android:color/black"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listViewCountry"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1.0"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        tools:ignore="InefficientWeight,MissingConstraints,RtlHardcoded"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        style="@android:style/Widget.Holo.Light.ScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/listViewCountry"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="MissingConstraints,RtlHardcoded">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints,RtlHardcoded,Suspicious0dp">
+
 
         <TextView
             android:id="@+id/textView"
@@ -34,27 +95,6 @@
             tools:ignore="ScrollViewSize" />
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints,ScrollViewSize"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
-
-
-        <ListView
-            android:id="@+id/listViewCountry"
-            style="@style/Widget.AppCompat.ListView.Menu"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:visibility="visible"
-            tools:ignore="NestedScrolling"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp" />
-
-    </LinearLayout>
-
 
 </android.support.constraint.ConstraintLayout>
+
