@@ -1,11 +1,15 @@
 package com.erg.erg;
 
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.DownloadManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -36,6 +40,7 @@ import static com.erg.erg.R.array.array_country;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int UPDATE_FREQUENCY = 500;
+    private static final int PERMS_REQUEST_CODE = 123;
     private final Handler handler = new Handler();
     ArrayAdapter<String> adapter;
     int size;
@@ -61,13 +66,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 player.pause();
                 playButton.setImageResource(android.R.drawable.ic_media_play);
             } else {
-                download();
+
+
+                if (hasPermissions()) {
+                    // our app has permissions.
+                    download();
+                } else {
+                    //our app doesn't have permissions, So i m requesting permissions.
+                    requestPerms();
+                }
                 player.start();
                 playButton.setImageResource(android.R.drawable.ic_media_pause);
             }
         }
     };
 
+    @SuppressLint("WrongConstant")
+    private boolean hasPermissions() {
+        int res = 0;
+        //string array of permissions,
+        String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+        for (String perms : permissions) {
+            res = checkCallingOrSelfPermission(perms);
+            if (!(res == PackageManager.PERMISSION_GRANTED)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void requestPerms() {
+        String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(permissions, PERMS_REQUEST_CODE);
+        }
+
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
