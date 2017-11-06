@@ -1,11 +1,13 @@
 package com.erg.erg;
 
 
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String[] songsArray;
     String swsong;
     Intent intent = null, chooser;
+    DownloadManager downloadManager;
     // private SeekBar seekbar = null;
     private MediaPlayer player = null;
     private ImageButton playButton = null;
@@ -54,19 +57,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         @Override
         public void onClick(View v) {
-
-
             if (player.isPlaying()) {
-
                 player.pause();
                 playButton.setImageResource(android.R.drawable.ic_media_play);
             } else {
-
+                download();
                 player.start();
-
                 playButton.setImageResource(android.R.drawable.ic_media_pause);
-
-
             }
         }
     };
@@ -75,29 +72,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        // seekbar = (SeekBar) findViewById(R.id.seekbar);
-        playButton = (ImageButton) findViewById(R.id.play);
-
-        //player = new MediaPlayer();
-        player = MediaPlayer.create(this, R.raw.xvalite_boga_nebes);
-        // playButton.setOnClickListener(onButtonClick);
-        // seekbar.setOnSeekBarChangeListener(seekBarChanged);
-
-        // player.stop();
-        // player.reset();
-        playButton.setImageResource(android.R.drawable.ic_media_play);
-        //player.start();
-        // handler.removeCallbacks(updatePositionRunnable);
-        //seekbar.setProgress(0);
-        playButton.setOnClickListener(onButtonClick);
-
-
-        // start thread
-
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         this.settings = getSharedPreferences("IDvalue", 0);
@@ -129,7 +103,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() { // serch need to work
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -144,6 +119,56 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
+
+
+        // seekbar = (SeekBar) findViewById(R.id.seekbar);
+        playButton = (ImageButton) findViewById(R.id.play);
+
+        //player = new MediaPlayer();
+        player = MediaPlayer.create(this, R.raw.xvalite_boga_nebes);
+        // playButton.setOnClickListener(onButtonClick);
+        // seekbar.setOnSeekBarChangeListener(seekBarChanged);
+
+        // player.stop();
+        // player.reset();
+        playButton.setImageResource(android.R.drawable.ic_media_play);
+        //player.start();
+        // handler.removeCallbacks(updatePositionRunnable);
+        //seekbar.setProgress(0);
+        playButton.setOnClickListener(onButtonClick);
+
+
+        // start thread
+
+
+    }
+
+    private void download() {
+        Uri uri = Uri.parse("https://getstartednode-integral-nonvulgarity.mybluemix.net/minus/xvalite_boga_nebes.mp3");
+        long downloadReference;
+
+        // Create request for android download manager
+        downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+        DownloadManager.Request request = new DownloadManager.Request(uri);
+
+        //Setting title of request
+        request.setTitle("Data Download");
+
+        //Setting description of request
+        request.setDescription("Android Data download using DownloadManager.");
+
+        //Set the local destination for the downloaded file to a path
+        //within the application's external files directory
+
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOCUMENTS, "AndroidTutorialPoint.mp3");
+
+        //request.setDescription(Environment.DIRECTORY_DCIM);
+
+
+        //Enqueue download and save into referenceId
+        downloadReference = downloadManager.enqueue(request);
+
+
     }
 
     @Override
