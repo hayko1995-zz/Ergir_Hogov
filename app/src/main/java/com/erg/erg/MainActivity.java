@@ -20,7 +20,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -198,10 +197,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
-                searchView.clearFocus();
+                // searchView.clearFocus();
+                // searchView.setIconified(true);
                 // searchView.setIconifiedByDefault(false);
                 searchView.setIconified(true);
-                searchView.setInputType(InputType.TYPE_NULL);
+                //searchView.setInputType(InputType.TYPE_NULL);
                 lv.setAdapter(null);
                 selecttext(adapter.getItem(position));
 
