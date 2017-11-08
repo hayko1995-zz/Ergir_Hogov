@@ -21,6 +21,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,10 +30,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 import static com.erg.erg.R.array.array_country;
 
@@ -48,12 +53,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     SearchView searchView;
     String[] songsArray;
     String swsong;
+    String current_Msuic_File = "xvalite boga nebes";
     Intent intent = null, chooser;
     DownloadManager downloadManager;
-    // private SeekBar seekbar = null;
+    String sdMusicPath;
+    private SeekBar seekbar = null;
     private MediaPlayer player = null;
+    private final Runnable updatePositionRunnable = new Runnable() {
+        public void run() {
+            updatePosition();
+        }
+    };
     private ImageButton playButton = null;
-    private TextView selelctedFile = null;
+    private TextView selectedFile;
     private TextView textView;
     private String erg;
     private ListView lv;
@@ -62,48 +74,88 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         @Override
         public void onClick(View v) {
+
+
             if (player.isPlaying()) {
+                handler.removeCallbacks(updatePositionRunnable);
                 player.pause();
+                //player.reset();
                 playButton.setImageResource(android.R.drawable.ic_media_play);
             } else {
 
 
-                if (hasPermissions()) {
-                    // our app has permissions.
-                    download();
-                } else {
-                    //our app doesn't have permissions, So i m requesting permissions.
-                    requestPerms();
+                if (isExist(current_Msuic_File)) {
+                    if (!Objects.equals(sdMusicPath, Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).toString() + "/" + current_Msuic_File + ".mp3")) {
+                        sdMusicPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).toString() + "/" + current_Msuic_File + ".mp3";
+                        try {
+                            player.setDataSource(sdMusicPath);
+                            player.prepare();
+                            seekbar.setProgress(0);
+                            seekbar.setMax(player.getDuration());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
+
+
                 player.start();
+                seekbar.setMax(player.getDuration());
+                updatePosition();
                 playButton.setImageResource(android.R.drawable.ic_media_pause);
+
+
+            }
+
+
+
+
+
+        }
+    };
+    private SeekBar.OnSeekBarChangeListener seekBarChanged = new SeekBar.OnSeekBarChangeListener() {
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            isMoveingSeekBar = false;
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            isMoveingSeekBar = true;
+        }
+
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            if (isMoveingSeekBar) {
+                player.seekTo(progress);
+
+                Log.i("OnSeekBarChangeListener", "onProgressChanged");
             }
         }
     };
 
-    @SuppressLint("WrongConstant")
-    private boolean hasPermissions() {
-        int res = 0;
-        //string array of permissions,
-        String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    private boolean isExist(String musName) {
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC) + "/" + musName + ".mp3");
+        if (file.exists()) {
+            selectedFile.setText(musName);
+            return true;
 
-        for (String perms : permissions) {
-            res = checkCallingOrSelfPermission(perms);
-            if (!(res == PackageManager.PERMISSION_GRANTED)) {
-                return false;
-            }
+        } else {
+            selectedFile.setText("not found");
+            download(current_Msuic_File);
+            return false;
         }
-        return true;
     }
 
-    private void requestPerms() {
-        String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(permissions, PERMS_REQUEST_CODE);
-        }
+    private void updatePosition() {
+        handler.removeCallbacks(updatePositionRunnable);
 
+        seekbar.setProgress(player.getCurrentPosition());
 
+        handler.postDelayed(updatePositionRunnable, UPDATE_FREQUENCY);
     }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         size = this.settings.getInt("init", 14);     //intenti @ndunum
 
         textView = (TextView) findViewById(R.id.textView);
+        selectedFile = (TextView) findViewById(R.id.selectedfile);
         textView.setTextSize(size);
         songsArray = getResources().getStringArray(R.array.array_country);
 
@@ -156,12 +209,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        seekbar = (SeekBar) findViewById(R.id.seekbar);
+        seekbar.setOnSeekBarChangeListener(seekBarChanged);
 
         // seekbar = (SeekBar) findViewById(R.id.seekbar);
         playButton = (ImageButton) findViewById(R.id.play);
 
-        //player = new MediaPlayer();
-        player = MediaPlayer.create(this, R.raw.xvalite_boga_nebes);
+        player = new MediaPlayer();
+        //player = MediaPlayer.create(this, R.raw.xvalite_boga_nebes);
         // playButton.setOnClickListener(onButtonClick);
         // seekbar.setOnSeekBarChangeListener(seekBarChanged);
 
@@ -174,13 +229,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         playButton.setOnClickListener(onButtonClick);
 
 
-        // start thread
+        if (hasPermissions()) {
+            // our app has permissions.
+
+        } else {
+            //our app doesn't have permissions, So i m requesting permissions.
+            requestPerms();
+        }
 
 
     }
 
-    private void download() {
-        Uri uri = Uri.parse("https://getstartednode-integral-nonvulgarity.mybluemix.net/minus/xvalite_boga_nebes.mp3");
+    private void download(String name_uri_mus) {
+
+        Uri uri = Uri.parse("http://armrugby.mybluemix.net/minus/" + name_uri_mus + ".mp3");
         long downloadReference;
 
         // Create request for android download manager
@@ -191,18 +253,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         request.setTitle("Data Download");
 
         //Setting description of request
-        request.setDescription("Android Data download using DownloadManager.");
+        request.setDescription("Download in music folder");
 
         //Set the local destination for the downloaded file to a path
         //within the application's external files directory
 
-        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOCUMENTS, "AndroidTutorialPoint.mp3");
-
-        //request.setDescription(Environment.DIRECTORY_DCIM);
-
-
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MUSIC, current_Msuic_File + ".mp3");
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         //Enqueue download and save into referenceId
-        downloadReference = downloadManager.enqueue(request);
+        //downloadReference =
+        downloadManager.enqueue(request);
 
 
     }
@@ -219,7 +279,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
-    }
+    }   // on back pressed
 
 
     @Override
@@ -309,6 +369,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
              }
          }
      };*/
+
+    @SuppressLint("WrongConstant") // permishions
+    private boolean hasPermissions() {
+        int res = 0;
+        //string array of permissions,
+        String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+        for (String perms : permissions) {
+            res = checkCallingOrSelfPermission(perms);
+            if (!(res == PackageManager.PERMISSION_GRANTED)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void requestPerms() {
+        String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(permissions, PERMS_REQUEST_CODE);
+        }
+
+
+    } // permishions
+
     public void Inch_mec_e_Astvac(View view) {
         Inch_mec_e_Astvac obj = new Inch_mec_e_Astvac();
         erg = obj.get_song();
