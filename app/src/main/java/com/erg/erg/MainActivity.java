@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     SearchView searchView;
     String[] songsArray;
     String swsong;
-    String current_Msuic_File = "xvalite boga nebes";
+    String current_Msuic_File = "xvalite_boga_nebes";
     Intent intent = null, chooser;
     DownloadManager downloadManager;
     String sdMusicPath;
@@ -242,15 +242,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void download(String name_uri_mus) {
 
-        Uri uri = Uri.parse("http://armrugby.mybluemix.net/minus/" + name_uri_mus + ".mp3");
-        long downloadReference;
+        Uri uri = Uri.parse("https://armrugby.mybluemix.net/minus/" + name_uri_mus + ".mp3");
+        //long downloadReference;
 
         // Create request for android download manager
         downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
         DownloadManager.Request request = new DownloadManager.Request(uri);
 
         //Setting title of request
-        request.setTitle("Data Download");
+        request.setTitle("Download music");
 
         //Setting description of request
         request.setDescription("Download in music folder");
@@ -763,7 +763,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Սրտիս միակ փափագն");
         textView.setText(Html.fromHtml(erg));
-    }
+        current_Msuic_File = "Srtis_papag";
+    } // done
 
     public void Ter_du_gites(View view) {
         Ter_du_gites obj = new Ter_du_gites();
