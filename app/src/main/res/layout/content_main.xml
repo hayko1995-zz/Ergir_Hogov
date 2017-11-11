@@ -92,7 +92,8 @@
             android:maxLines="1"
             android:text="Not file selected"
             android:textColor="@android:color/black"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText"
+            tools:text="Բարի գալուստ" />
 
     </LinearLayout>
 

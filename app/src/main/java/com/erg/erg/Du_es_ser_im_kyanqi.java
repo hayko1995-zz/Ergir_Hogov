@@ -4,7 +4,7 @@ package com.erg.erg;
  * Created by haykh on 29.05.2017.
  */
 
-public class Du_es_ser_im_kjanqi {
+public class Du_es_ser_im_kyanqi {
 
     public String get_song() {
         String ss = "Դու ես սերը իմ կյանքի,<br>" +

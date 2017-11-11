@@ -107,9 +107,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
 
-
-
-
         }
     };
     private SeekBar.OnSeekBarChangeListener seekBarChanged = new SeekBar.OnSeekBarChangeListener() {
@@ -134,13 +131,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     };
 
     private boolean isExist(String musName) {
+
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC) + "/" + musName + ".mp3");
         if (file.exists()) {
             selectedFile.setText(musName);
             return true;
 
         } else {
-            selectedFile.setText("not found");
+
             download(current_Msuic_File);
             return false;
         }
@@ -171,6 +169,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         erg = " Որովհետեւ Աստուած այնպէս սիրեց աշխարհքը որ իր միածին Որդին տուաւ. որ ամեն նորան հաւատացողը չկորչի, այլ յաւիտենական կեանքն ունենայ։";
         textView.setText(Html.fromHtml("<p>Որովհետեւ Աստուած <br> այնպէս սիրեց աշխարհքը <br> որ իր միածին Որդին տուաւ. <br> որ ամեն նորան <br> հաւատացողը չկորչի, <br> այլ յաւիտենական <br> կեանքն ունենայ։<p> <br> Հովհանուես 3։16"));
+        selectedFile.setText("Բարի գալուստ");
 
         lv = (ListView) findViewById(R.id.listViewCountry);
         ArrayList<String> arrayCountry = new ArrayList<>();
@@ -243,11 +242,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void download(String name_uri_mus) {
 
         Uri uri = Uri.parse("https://armrugby.mybluemix.net/minus/" + name_uri_mus + ".mp3");
+
         //long downloadReference;
 
         // Create request for android download manager
         downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
         DownloadManager.Request request = new DownloadManager.Request(uri);
+        selectedFile.setText("Շուտով կլինի");
 
         //Setting title of request
         request.setTitle("Download music");
@@ -399,6 +400,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ինչ մեծ է Աստված");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Im_angin(View view) {
@@ -406,6 +408,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Իմ Անգին");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "im_angin";
     }
 
     public void mardiq_cnvum_en(View view) {
@@ -413,6 +416,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Մարդիք ծնվում են");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "mardik_cnvum_en";
     }
 
     public void Aha_kangnac_em(View view) {
@@ -420,6 +424,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ահա կանգնած եմ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "aha_kangnac_em";
     }
 
     public void Aha_menq_mer_urax_ergerov(View view) {
@@ -427,6 +432,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ահա, մենք մեր ուրախ Երգերով");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "aha_menq_mer_urax_ergerov";
     }
 
     public void Amenic_ver(View view) {
@@ -434,13 +440,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ամենից վեր");
         textView.setText(Html.fromHtml(erg));
-    }
+        current_Msuic_File = "amenic_ver";
+
+    } //done
 
     public void Ararich_erknqi(View view) {
         Ararich_erknqi obj = new Ararich_erknqi();
         erg = obj.get_song();
         getSupportActionBar().setTitle("Արարիչ երկնքի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "ararich_erknqi";
     }
 
     public void Ayd_inch_xaxax_ajker_unes_du(View view) {
@@ -448,6 +457,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Այդ ինչ խաղաղ աչքեր ունես");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Bacir_im_hogu_achqer(View view) {
@@ -455,6 +465,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Բացի՚ր, իմ հոգու");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "bacir_im_hogu_achqer";
     }
 
     public void Barcial_arqa(View view) {
@@ -462,6 +473,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Բարձյալ Արքա");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Bari_lur(View view) {
@@ -469,6 +481,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Բարի Լուր");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Beranis_xosqer(View view) {
@@ -476,6 +489,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Բերնիս խոսքերը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void davanenq(View view) {
@@ -483,6 +497,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Դավանենք");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "davanenq";
     }
 
     public void De_ijir_ijir(View view) {
@@ -490,6 +505,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Դե իջիր իջիր");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "de_ijir_ijir";
     }
 
     public void Djvar_pahin(View view) {
@@ -497,6 +513,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Դժվար պահին");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "djvar_pahin";
     }
 
     public void Dolorasan(View view) {
@@ -504,13 +521,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Դոլորոսան");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
-    public void Du_es_ser_im_kjanqi(View view) {
-        Du_es_ser_im_kjanqi obj = new Du_es_ser_im_kjanqi();
+    public void Du_es_ser_im_kyanqi(View view) {
+        Du_es_ser_im_kyanqi obj = new Du_es_ser_im_kyanqi();
         erg = obj.get_song();
         getSupportActionBar().setTitle("Դու ես սերը իմ կյանքի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "du_es_ser_im_kyanqi";
     }
 
     public void Erb_korac_ei(View view) {
@@ -518,6 +537,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Երբ կորաց էի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Erb_nayum_em(View view) {
@@ -525,6 +545,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Երբ նայում եմ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Erb_vor_na_amperov(View view) {
@@ -532,6 +553,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Երբ որ Նա ամպերով");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Erknqi_dur_bac_e(View view) {
@@ -539,6 +561,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Երկնքի դուռը բաց է");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "erknqi_dur_bac_e";
     }
 
     public void Es_hayr_unem(View view) {
@@ -546,6 +569,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ես հայր ունեմ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Ev_astvac_aynpes(View view) {
@@ -553,6 +577,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("ԵՎ Աստված այնպես");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "ev_astvac_aynpes";
     }
 
     public void Galis_em(View view) {
@@ -560,6 +585,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Գալիս եմ  ներկայոթյանդ մեջ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Garun_e_hima_im_hoqum(View view) {
@@ -567,6 +593,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Գարուն է հիմա իմ հոգում");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Garun_hrashali(View view) {
@@ -574,6 +601,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Գարուն հրաշալի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Havatqs_chem_urana(View view) {
@@ -581,6 +609,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հավատքս չեմ ուրանա");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "havatqs_chem_urana";
     }
 
     public void Hisus_Dues_ayn_jar(View view) {
@@ -588,6 +617,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հիսուս դու ես այն ժայռը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Hisusi_ser(View view) {
@@ -595,6 +625,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հիսուսի սերը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Hisusi_ser_orhni_mez(View view) {
@@ -602,6 +633,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հիսուսի սերը օրհնի մեզ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Hisus_e_kyanq(View view) {
@@ -609,6 +641,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հիսուսն է կյանքը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Inch_anun_ashxar_ekav(View view) {
@@ -616,6 +649,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ինչ անուն աշխարհ եկավ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "inch_anun_ashxar_ekav";
     }
 
     public void Inch_mec_u_hrashali(View view) {
@@ -623,6 +657,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ինչ մեծ ու հրաշալի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Kangneq_mardiq(View view) {
@@ -630,6 +665,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Կանգնեք մարդիկ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Lur_Gisher(View view) {
@@ -637,6 +673,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Լուռ գիշեր");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "lur_gisher";
     }
 
     public void menq_enq_mer_hoqov(View view) {
@@ -644,6 +681,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("մենք ենք մեր հոքով");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void mets_u_Hrashali_en(View view) {
@@ -651,6 +689,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Մեծ ու հրաշալի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void mtel_em_srbutyant_srboc(View view) {
@@ -658,6 +697,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Մտել եմ սրբությանտ սրբոցը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "srbutyan_srboc";
     }
 
     public void Nerir_ter_im(View view) {
@@ -665,6 +705,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ներիր Տեր իմ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "nerir_ter_im";
     }
 
     public void O_inch_hrashq_metutyunes(View view) {
@@ -672,6 +713,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Օ ինչ հրաշք մեծություն ես");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "o_inch_hrashq_mecutyun_es";
     }
 
     public void Orhni_mez_orhnyal(View view) {
@@ -679,6 +721,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Օրհնիր մեզ օրհնյալ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "orhini_mez_orhnyal";
     }
 
     public void Ov_Hisus_imdz_mot_ari(View view) {
@@ -686,6 +729,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ով Հիսուս ինձ մոտ արի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Ovkianos(View view) {
@@ -693,6 +737,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Օվկիանոս");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Ovsanna(View view) {
@@ -700,6 +745,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Օվսաննա");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Parq_enq_talis_qez(View view) {
@@ -707,6 +753,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Փառք ենք տալիս քեզ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Parq_tveq_Ascun(View view) {
@@ -714,6 +761,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Փառք տվեք Ասծուն");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Qezem_nvirum(View view) {
@@ -721,6 +769,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Քեզեմ նվիրում");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Qich_m_arev(View view) {
@@ -728,6 +777,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Քիչմը արև");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Qo_ser_barcr_e(View view) {
@@ -735,6 +785,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Քո սերը բարձր է");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "qo_ser_barcr_e";
     }
 
     public void Qo_sirov_indz_ayceleles(View view) {
@@ -742,6 +793,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Քո սիրով ինձ այցելել ես");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "qo_sirov_indz_aycelel_es";
     }
 
     public void Ser(View view) {
@@ -749,6 +801,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Սեր");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Shnorhakal_enq_ter_Hisusin(View view) {
@@ -756,6 +809,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Շնորհակալ ենք Տեր Հիսուս");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Srtis_miak_papag(View view) {
@@ -771,6 +825,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Տեր դու գիտես");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "ter_du_gites";
     }
 
     public void Ter_Hisus_ter_Hisus(View view) {
@@ -778,6 +833,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Տեր դու գիտես");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Ter_pahe_zis(View view) {
@@ -785,6 +841,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Տեր պահի զիս");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "ter_pahe_zis";
     }
 
     public void Ter_im_hovivn_e(View view) {
@@ -792,6 +849,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Տերը իմ, Հովիվս է");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Tern_e_im_luysn_u_prkutyun(View view) {
@@ -799,6 +857,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Տերն է իմ լույսն ու փրկությունը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Tirojme_kxndrem(View view) {
@@ -806,6 +865,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Տերոջմե կխնդրեմ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Uzumem_motenal_qez(View view) {
@@ -813,6 +873,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ուզում եմ մոտենալ Քեզ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "uzum_em_motenal_qez";
     }
 
     public void Vordis(View view) {
@@ -820,6 +881,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Որդիս");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "vordis";
     }
 
     public void Vortex_Tiroj_hoqin(View view) {
@@ -827,6 +889,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Որտեղ Տիրոջ Հոգին ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Xachin_mot(View view) {
@@ -834,6 +897,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Խաչին մոտ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "xachi_mot";
     }
 
     public void Zorutyun_qajutyun(View view) {
@@ -841,6 +905,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Զորություն Քաջություն");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "zorutyun_qajutyun";
     }
 
     public void Astco_ser(View view) {
@@ -848,6 +913,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Աստծո սերը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "astco_ser";
     }
 
     public void Ekeq_miananq(View view) {
@@ -855,6 +921,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Եկեք  միանաք");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "ekeq_miananq";
     }
 
     public void Tsap_zark(View view) {
@@ -862,6 +929,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ծափ զարկ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Hachaxakai_ari_du_goxgota(View view) {
@@ -869,6 +937,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հաճախակի արի դու գողգոթա");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Hisus_dues_im_ter(View view) {
@@ -876,6 +945,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հիսուս Դու ես իմ Տերը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Hisus_sirum_enq(View view) {
@@ -883,6 +953,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հիսուս սիրում ենք");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Miayn_qez_nayem(View view) {
@@ -890,6 +961,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Միայն քեզի նայիմ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Parq_tanq(View view) {
@@ -897,6 +969,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Փառք տանք");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Qristos_ov_chgiti(View view) {
@@ -904,6 +977,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Քրիստոս ով չգիտի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Qristosn_e_ayn_jayr(View view) {
@@ -911,6 +985,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Քրիստոսն է ժայռը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Orhnyal_erashxiq(View view) {
@@ -918,6 +993,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Օրհնյալ երաշխիք");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Ter_zorutyun_e(View view) {
@@ -925,6 +1001,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Տերը զորություն է");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "ter_zorutyun_e";
     }
 
     public void Du_erknqic_erkir_ijar(View view) {
@@ -932,6 +1009,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Դու երկնքից երկիր իջար");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Hnern_ancan(View view) {
@@ -939,6 +1017,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հներն անցան");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "hnern_ancan";
     }
 
     public void Tiroj_parq_tveq(View view) {
@@ -946,6 +1025,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Տիրոջը փառք տվեք");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "tiroj_parq_tveq";
     }
 
     public void Du_gites_tiroj_patverner(View view) {
@@ -953,6 +1033,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Դու գիտես Տիրոջ պատվերները");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Ur_gnam(View view) {
@@ -960,6 +1041,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ուր գնամ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "ur_gnam";
     }
 
     public void Tern_e_mer_arqaneri_arqan(View view) {
@@ -967,6 +1049,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Տերն է մեր Արքաների Արքան");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "tern_e_mer_argan";
     }
 
     public void Du_petkes_indz(View view) {
@@ -974,6 +1057,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Դու պետք ես ինձ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "du_petq_es_indz";
     }
 
     public void Kergem(View view) {
@@ -981,13 +1065,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Կերգեմ");
         textView.setText(Html.fromHtml(erg));
-    }
+        current_Msuic_File = "kergem";
+    }// done
 
     public void Es_mecarum_em(View view) {
         Es_mecarum_em obj = new Es_mecarum_em();
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ես մեծարում եմ քեզ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Qo_carayin(View view) {
@@ -995,6 +1081,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Քո ծառային");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Aleluyaner(View view) {
@@ -1002,6 +1089,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ալելույաներ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "aleluyaner";
     }
 
     public void Erkinq_Asco_parq_kpatmi(View view) {
@@ -1009,6 +1097,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Երկինքը Աստծո Փառքը կպատմե");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "erkinq_astco_parq_kpatme";
     }
 
     public void Ek_ov_surb_hoqi(View view) {
@@ -1016,6 +1105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Եկ ով Սուրբ Հոգի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "ek_ov_surb_hogi";
     }
 
     public void Mek_ka_vor_arjani_e(View view) {
@@ -1023,6 +1113,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Միայն մեկը կա որ արժանի է");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "mek_ka_vor_arjani_e";
     }
 
     public void Im_kyanqi_huysnes_du(View view) {
@@ -1030,6 +1121,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Իմ կյանքի հույսն ես դու");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Ter_inch_gexecik_es(View view) {
@@ -1037,13 +1129,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Տեր ինչ գեղեցիկ ես");
         textView.setText(Html.fromHtml(erg));
-    }
+        current_Msuic_File = "Շուտով Կլինի";
+        current_Msuic_File = "ter_inch_gexecik_es";
+    }// done
 
     public void Vorqan_uzumem_em(View view) {
         Vorqan_uzumem_em obj = new Vorqan_uzumem_em();
         erg = obj.get_song();
         getSupportActionBar().setTitle("Դու իմ ամուր ժայռն");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "vorqan_uzum_em";
     }
 
     public void Es_sirum_em_Hisusin(View view) {
@@ -1051,6 +1146,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ես սիրում եմ Հիսուսին");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "es_sirum_em_hisusin";
     }
 
     public void Du_es_surb(View view) {
@@ -1058,6 +1154,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Դու ես սուրբ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "du _es_surb";
     }
 
     public void Du_es_miayn_surb(View view) {
@@ -1065,6 +1162,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Դու ես միայն Սուրբ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "du_es_miayn_surb";
     }
 
     public void Es_sirum_em_qez_sirov(View view) {
@@ -1072,6 +1170,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ես սիրում եմ քեզ սիրով");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Hisus_erkrpagum_em_qez(View view) {
@@ -1079,6 +1178,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հիսուս երկրպագում եմ քեզ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "hisus_erkrpagum_em_qez";
     }
 
     public void Tesel_em_Hisusi_haxtwutyun(View view) {
@@ -1086,6 +1186,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Տեսել եմ ես Հիսուսի հաղթությունը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Hisus_krak_e(View view) {
@@ -1093,6 +1194,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հիսուս կրակ է");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "hisus_krak_e";
     }
 
     public void Zinvor(View view) {
@@ -1100,6 +1202,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Զինվոր");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "zinvor";
     }
 
     public void Aranc_qez_im_kyanq(View view) {
@@ -1107,6 +1210,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Առանց Քեզ իմ կյանքը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "aranc_qez_im_kyanq";
     }
 
     public void Bari_hoviv(View view) {
@@ -1114,6 +1218,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Բարի Հովիվ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "bari_hoviv";
     }
 
     public void Chka_huys_indz_hamar(View view) {
@@ -1121,6 +1226,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Չկար հույս ինձ համար");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "chkar_huys_indz_hamar";
     }
 
     public void Kaxotem_qez_hamar(View view) {
@@ -1128,6 +1234,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Կաղոթեմ քեզ համար");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "kaxotem_qez_hamar";
     }
 
     public void Amen_tsunk_ktsrvi(View view) {
@@ -1135,6 +1242,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ամեն ծունկ ծռի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "amen_cunk_crvi";
     }
 
     public void Umn_e_misht_parq(View view) {
@@ -1142,6 +1250,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ումն է միշտ փառքը");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "umne_misht_parq";
     }
 
     public void Ergerov_qez_kmecarem(View view) {
@@ -1149,6 +1258,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Երգերով Քեզ կմեծարեմ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "ergerov_qez_kmecarem";
     }
 
     public void Ekexeci(View view) {
@@ -1156,6 +1266,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Եկեղեցի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "ekexeci";
     }
 
     public void Tsnvec_ter_Hsius(View view) {
@@ -1163,6 +1274,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ծնվեց Տեր Հիսուս");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Xachin_misht_nayelov(View view) {
@@ -1170,6 +1282,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Խաչին միշտ նայելով");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "xachin_misht_nayelov";
     }
 
     public void Tsnndyan_tonin(View view) {
@@ -1177,6 +1290,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Ծննդյան տոնին մենք");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "Շուտով Կլինի";
     }
 
     public void Hisus_parqi_e_arjani(View view) {
@@ -1184,6 +1298,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հիսուս փառքի ես արժանի");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "hisus_parqi_es_argani";
     }
 
     public void Ir_xachov_mez(View view) {
@@ -1191,6 +1306,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Իր խաչով մեզ");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "ir_xachov_mez";
     }
 
     public void Parq_tanq_Hisusin(View view) {
@@ -1198,6 +1314,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Փառք տանք մենք Հիսուսին");
         textView.setText(Html.fromHtml(erg));
+        current_Msuic_File = "parq_tanq_hisusin";
     }
 
     public void selecttext(String swtext) {
@@ -1291,7 +1408,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             case "Դու ես սերը իմ կյանքի": {
-                Du_es_ser_im_kjanqi(null);
+                Du_es_ser_im_kyanqi(null);
                 break;
             }
             case "Դու ես միայն Սուրբ": {
