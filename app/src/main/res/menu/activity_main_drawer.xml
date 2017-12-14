@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
 
@@ -98,7 +97,7 @@
             tools:ignore="HardcodedText" />
         <item
             android:id="@+id/Du_es_ser_im_kjanqi"
-            android:title="Դու ես սերը իմ կյանքի"
+            android:title="Դու ես սեռը իմ կյանքի"
             tools:ignore="HardcodedText" />
         <item
             android:id="@+id/Du_es_miayn_surb"
