@@ -16,14 +16,13 @@ import android.widget.TextView;
 public class Settings extends Activity {
 
     private static final String SAVED_TEXT = "saved_text";
-    private TextView ftext;
-    private TextView textView2;
+    public SeekBar sb;
     String i;
     String erg;
     int newprogress = 14;
-    public SeekBar sb;
     SharedPreferences save_size;
-
+    private TextView ftext;
+    private TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
