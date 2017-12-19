@@ -97,7 +97,7 @@
             tools:ignore="HardcodedText" />
         <item
             android:id="@+id/Du_es_ser_im_kjanqi"
-            android:title="Դու ես սեռը իմ կյանքի"
+            android:title="Դու ես սերը իմ կյանքի"
             tools:ignore="HardcodedText" />
         <item
             android:id="@+id/Du_es_miayn_surb"
@@ -252,20 +252,12 @@
             android:title="Հիսուսի սերը"
             tools:ignore="HardcodedText" />
         <item
-            android:id="@+id/Hisusi_ser_orhni_mez"
-            android:title="Հիսուսի սերը օրհնի մեզ"
-            tools:ignore="HardcodedText" />
-        <item
             android:id="@+id/Hisus_e_kyanq"
             android:title="Հիսուսն է կյանքը"
             tools:ignore="HardcodedText" />
         <item
             android:id="@+id/Hisus_erkrpagum_em_qez"
             android:title="Հիսուս երկրպագում եմ քեզ"
-            tools:ignore="HardcodedText" />
-        <item
-            android:id="@+id/Hisus_Dues_ayn_jar"
-            android:title="Հիսուս դու ես այն ժայռը"
             tools:ignore="HardcodedText" />
         <item
             android:id="@+id/Hisus_dues_im_ter"
