@@ -457,13 +457,6 @@
             android:title="Օրհնյալ երաշխիք"
             tools:ignore="HardcodedText" />
 
-        <item
-            android:id="@+id/Ovsanna"
-            android:title="Օվսաննա"
-            tools:ignore="HardcodedText" />
-
-
-
 
         <item
             android:id="@+id/Ovkianos"
