@@ -104,8 +104,8 @@
             android:title="Դու ես միայն Սուրբ"
             tools:ignore="HardcodedText" />
         <item
-            android:id="@+id/Du_es_surb"
-            android:title="Դու ես սուրբ"
+            android:id="@+id/du_es_surb_ev_ardar"
+            android:title="Դու ես սուրբ և արդար"
             tools:ignore="HardcodedText" />
         <item
             android:id="@+id/Du_erknqic_erkir_ijar"
@@ -134,10 +134,6 @@
         <item
             android:id="@+id/Es_hayr_unem"
             android:title="Ես հայր ունեմ"
-            tools:ignore="HardcodedText" />
-        <item
-            android:id="@+id/Es_mecarum_em"
-            android:title="Ես մեծարում եմ քեզ"
             tools:ignore="HardcodedText" />
         <item
             android:id="@+id/Es_sirum_em_Hisusin"
