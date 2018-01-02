@@ -1447,7 +1447,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Զինվոր");
         textView.setText(Html.fromHtml(erg));
-        current_Msuic_File = "zinvor";
+        current_Msuic_File = "Zinvor";
         seekbar.setProgress(0);
         player.reset();
         selectedFile.setText("Շուտով կլինի");
@@ -1458,7 +1458,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Առանց Քեզ իմ կյանքը");
         textView.setText(Html.fromHtml(erg));
-        current_Msuic_File = "aranc_qez_im_kyanq";
+        current_Msuic_File = "Aranc_qez_im_kyanq";
         seekbar.setProgress(0);
         player.reset();
         selectedFile.setText("Շուտով կլինի");
@@ -1480,7 +1480,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Չկար հույս ինձ համար");
         textView.setText(Html.fromHtml(erg));
-        current_Msuic_File = "chkar_huys_indz_hamar";
+        current_Msuic_File = "Chka_huys_indz_hamar";
         seekbar.setProgress(0);
         player.reset();
         selectedFile.setText("Շուտով կլինի");
@@ -1535,7 +1535,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Եկեղեցի");
         textView.setText(Html.fromHtml(erg));
-        current_Msuic_File = "ekexeci";
+        current_Msuic_File = "Ekexeci";
         seekbar.setProgress(0);
         player.reset();
         selectedFile.setText("Շուտով կլինի");
@@ -1557,7 +1557,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Խաչին միշտ նայելով");
         textView.setText(Html.fromHtml(erg));
-        current_Msuic_File = "xachin_misht_nayelov";
+        current_Msuic_File = "Xachin_misht_nayelov";
         seekbar.setProgress(0);
         player.reset();
         selectedFile.setText("Շուտով կլինի");
@@ -1579,7 +1579,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Հիսուս փառքի ես արժանի");
         textView.setText(Html.fromHtml(erg));
-        current_Msuic_File = "hisus_parqi_es_argani";
+        current_Msuic_File = "Hisus_parqi_e_arjani";
         seekbar.setProgress(0);
         player.reset();
         selectedFile.setText("Շուտով կլինի");
@@ -1601,7 +1601,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         erg = obj.get_song();
         getSupportActionBar().setTitle("Փառք տանք մենք Հիսուսին");
         textView.setText(Html.fromHtml(erg));
-        current_Msuic_File = "parq_tanq_hisusin";
+        current_Msuic_File = "Parq_tanq_Hisusin";
         seekbar.setProgress(0);
         player.reset();
         selectedFile.setText("Շուտով կլինի");
