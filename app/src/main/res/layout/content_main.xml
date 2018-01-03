@@ -13,6 +13,53 @@
     tools:showIn="@layout/app_bar_main">
 
 
+    <ListView
+        android:id="@+id/listViewCountry"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        app:layout_constraintBottom_toTopOf="@+id/seekbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="InefficientWeight,MissingConstraints,RtlHardcoded" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        style="@android:style/Widget.Holo.Light.ScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/listViewCountry"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints,RtlHardcoded,Suspicious0dp">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:textAlignment="center"
+            android:textColor="@color/black_color"
+            app:layout_constraintBottom_toBottomOf="@+id/parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ScrollViewSize" />
+    </ScrollView>
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:paddingBottom="10dip"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
@@ -26,8 +73,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekbar">
+        app:layout_constraintRight_toRightOf="parent">
 
         <ImageButton
             android:id="@+id/play"
@@ -51,59 +97,5 @@
 
     </LinearLayout>
 
-    <SeekBar
-        android:id="@+id/seekbar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:max="100"
-        android:paddingBottom="10dip"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
-    <ListView
-        android:id="@+id/listViewCountry"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1.0"
-        app:layout_constraintBottom_toTopOf="@+id/seekbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="InefficientWeight,MissingConstraints,RtlHardcoded" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        style="@android:style/Widget.Holo.Light.ScrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/seekbar"
-        app:layout_constraintHorizontal_bias="0.393"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints,RtlHardcoded,Suspicious0dp">
-
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:textAlignment="center"
-            android:textColor="@color/black_color"
-            app:layout_constraintBottom_toBottomOf="@+id/parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ScrollViewSize" />
-    </ScrollView>
-
 
 </android.support.constraint.ConstraintLayout>
-
